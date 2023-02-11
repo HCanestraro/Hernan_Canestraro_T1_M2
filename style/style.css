@@ -1,3 +1,6 @@
+* {
+box-sizing: border-box;
+}
 header {
 	display: flex;
 	width: 100%;
@@ -14,6 +17,24 @@ header {
 	background-color: black;
 	padding: 10px 10px;
 }
+
+.table, .td {
+	table-layout: auto;
+	width: 100%;
+	/* border: 1px double #333; */
+	/* caption-side: bottom; */
+}
+/* thead, tfoot { */
+/* background-color: #333; */
+/* color: #fff; */
+/* } */
+.navbar {
+	background-color: aqua;
+}
+button {
+	background-color: chartreuse;
+    }
+    
 .loguitos {
 	width: 40px;
 	height: 40px;
@@ -27,6 +48,11 @@ header {
 	width: 230px;
 	height: 140px;
 }
+
+.card-title {
+	text-align: center;
+}
+
 footer {
 	color: white;
 	height: 50px;
@@ -35,10 +61,41 @@ footer {
 	bottom: 0;
 	background-color: gray;
 }
+ 
 .chebox {
 	display: flex;
 	position: relative;
 	border: 2px solid black;
 	align-items: center;
 	justify-content: center;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px){
+
+	footer {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		font-size: 18px;
+		font-family: Arial;
+		justify-items: center;
+		align-items: center;
+		position: relative;
+		bottom: 0;
+		background-color: black;
+		color: chartreuse;
+		width: 100%;
+		border-radius: 10px 10px 10px 10px;
+		margin-top: 30px;
+		/* width: 98.5vw; */
+	    }
+		.loguitos {
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		background-color: black;
+		justify-content: space-between;
+		margin-left: 5px;
+	}
+	
 }
