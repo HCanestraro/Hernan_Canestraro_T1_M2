@@ -1,101 +1,231 @@
 * {
-box-sizing: border-box;
-}
-header {
-	display: flex;
-	width: 100%;
-	height: 70px;
-	border: 2px solid black;
-}
-.logo1 {
-	position: absolute;
-	top: 2px;
-	left: 15px;
-	width: 60px;
-	height: 60px;
-	border: 1px solid black;
-	background-color: black;
-	padding: 10px 10px;
-}
-
-.table, .td {
-	table-layout: auto;
-	width: 100%;
-	/* border: 1px double #333; */
-	/* caption-side: bottom; */
-}
-/* thead, tfoot { */
-/* background-color: #333; */
-/* color: #fff; */
-/* } */
-.navbar {
-	background-color: aqua;
-}
-button {
-	background-color: chartreuse;
-    }
-    
-.loguitos {
-	width: 40px;
-	height: 40px;
-	border-radius: 100%;
-	background-color: black;
-	justify-content: space-between;
-	margin-left: 10px;
-}
-.imgCard {
-	padding: 5px 5px 5px 5px;
-	width: 230px;
-	height: 140px;
-}
-
-.card-title {
-	text-align: center;
-}
-
-footer {
-	color: white;
-	height: 50px;
-	border: 2px solid black;
-	margin-top: auto;
-	bottom: 0;
-	background-color: gray;
-}
- 
-.chebox {
-	display: flex;
-	position: relative;
-	border: 2px solid black;
-	align-items: center;
-	justify-content: center;
-}
-
-@media only screen and (min-width: 320px) and (max-width: 767px){
-
-	footer {
+	box-sizing: border-box;
+	}
+	header {
 		display: flex;
-		flex-direction: column;
-		text-align: center;
-		font-size: 18px;
-		font-family: Arial;
-		justify-items: center;
-		align-items: center;
-		position: relative;
-		bottom: 0;
-		background-color: black;
-		color: chartreuse;
 		width: 100%;
-		border-radius: 10px 10px 10px 10px;
-		margin-top: 30px;
-		/* width: 98.5vw; */
+		height: 70px;
+		border: 2px solid black;
+	}
+	.logo1 {
+		z-index: 2;
+		position: absolute;
+		top: 2px;
+		left: 15px;
+		width: 60px;
+		height: 60px;
+		border: 1px solid black;
+		background-color: black;
+		padding: 10px 10px;
+	}
+	#cohort {
+		margin-left: 750px;
+	}
+	input#exampleInputName1 {
+		width: 325px;
 	    }
-		.loguitos {
-		width: 20px;
-		height: 20px;
+	
+	.table, .td {
+		table-layout: auto;
+		width: 100%;
+		/* border: 1px double #333; */
+		/* caption-side: bottom; */
+	}
+	/* thead, tfoot { */
+	/* background-color: #333; */
+	/* color: #fff; */
+	/* } */
+	.navbar {
+		background-color: aqua;
+	}
+	button {
+		background-color: chartreuse;
+	    }
+	    
+	.loguitos {
+		width: 40px;
+		height: 40px;
 		border-radius: 100%;
 		background-color: black;
 		justify-content: space-between;
-		margin-left: 5px;
+		margin-left: 10px;
+	}
+	.imgCard {
+		padding: 5px 5px 5px 5px;
+		width: 230px;
+		height: 140px;
 	}
 	
-}
+	.card-title {
+		text-align: center;
+	}
+	
+	footer {
+		color: white;
+		height: 50px;
+		border: 2px solid black;
+		margin-top: auto;
+		bottom: 0;
+		background-color: gray;
+	}
+	 
+	.chebox {
+		display: flex;
+		 /* position: relative; */
+		border: 2px solid black;
+		align-items: center;
+		/* justify-content: center; */
+	}
+	
+	@media only screen and (min-width: 320px) and (max-width: 767px){
+	#cohort {
+		margin-left: 50px;
+	}
+	input#exampleInputName1 {
+		width: 300px;
+	    }
+	#btnSubmit {
+		margin-left: 225px;
+	}
+		footer {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			font-size: 25px;
+			font-family: Arial;
+			justify-items: center;
+			align-items: center;
+			position: relative;
+			bottom: 0;
+			background-color: black;
+			color: chartreuse;
+			width: 100%;
+			border-radius: 10px 10px 10px 10px;
+			margin-top: 30px;
+			/* width: 98.5vw; */
+		    }
+			.loguitos {
+			width: 25px;
+			height: 25px;
+			border-radius: 100%;
+			background-color: black;
+			justify-content: space-between;
+			margin-left: 5px;
+		}
+		
+	}
+	
+	@media only screen and (min-width: 768px) and (max-width: 1023px){
+	#cohort {
+		margin-left: 700px;
+	}
+	input#exampleInputName1 {
+		width: 520px;
+	    }
+	    #btnSubmit {
+		margin-left: 920px;
+	}
+	footer {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			font-size: 23px;
+			font-family: Arial;
+			justify-items: center;
+			align-items: center;
+			position: relative;
+			bottom: 0;
+			background-color: black;
+			color: chartreuse;
+			width: 100%;
+			border-radius: 10px 10px 10px 10px;
+			margin-top: 30px;
+			/* width: 98.5vw; */
+		    }
+	
+		.loguitos {
+			width: 40px;
+			height: 40px;
+			border-radius: 100%;
+			background-color: black;
+			justify-content: space-between;
+			margin-left: 5px;
+		}
+	
+	}
+	@media only screen and (min-width: 1024px) and (max-width: 1365px){
+	#cohort {
+		margin-left: 600px;
+	}
+	input#exampleInputName1 {
+		width: 300px;
+	    }
+	    #btnSubmit {
+		margin-left: 900px;
+	}
+	footer {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			font-size: 25px;
+			font-family: Arial;
+			justify-items: center;
+			align-items: center;
+			position: relative;
+			bottom: 0;
+			background-color: black;
+			color: chartreuse;
+			/* width: 100%; */
+			border-radius: 10px 10px 10px 10px;
+			margin-top: 30px;
+			width: 98.5vw;
+			height: 100px;
+		    }
+	
+		.loguitos {
+			width: 80px;
+			height: 80px;
+			border-radius: 100%;
+			background-color: black;
+			justify-content: space-between;
+			margin-left: 5px;
+		}
+	}
+	@media only screen and (min-width: 1366px) and (max-width: 2560px){
+	#cohort {
+		margin-left: 1000px;
+	}
+	input#exampleInputName1 {
+		width: 300px;
+	    }
+	    #btnSubmit {
+		margin-left: 225px;
+	}
+	footer {
+			display: flex;
+			flex-direction: column;
+			text-align: center;
+			font-size: 25px;
+			font-family: Arial;
+			justify-items: center;
+			align-items: center;
+			position: relative;
+			bottom: 0;
+			background-color: black;
+			color: chartreuse;
+			width: 100%;
+			border-radius: 10px 10px 10px 10px;
+			margin-top: 30px;
+			/* width: 98.5vw; */
+			height: 75px;
+		    }
+	
+		.loguitos {
+			width: 60px;
+			height: 60px;
+			border-radius: 100%;
+			background-color: black;
+			justify-content: space-between;
+			margin-left: 5px;
+		}
+	}
