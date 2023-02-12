@@ -1,12 +1,128 @@
 * {
 	box-sizing: border-box;
+}
+header {
+	display: flex;
+	width: 100%;
+	height: 70px;
+	border: 2px solid black;
+}
+.logo1 {
+	z-index: 2;
+	position: absolute;
+	top: 2px;
+	left: 15px;
+	width: 60px;
+	height: 60px;
+	border: 1px solid black;
+	background-color: white;
+	padding: 10px 10px;
+}
+#cohort {
+	margin-left: 750px;
+}
+input#exampleInputName1 {
+	width: 325px;
+}
+#btnSubmit {
+	margin-left: 225px;
+}
+.table,
+.td {
+	table-layout: auto;
+	width: 100%;
+}
+
+.navbar {
+	background-color: black;
+}
+
+.btnpages {
+	width: 45px;
+	height: auto;
+	background-color: #000;
+	color: purple;
+}
+.btnSearch {
+	width: 20px;
+	height: 20px;
+	background-color: chartreuse;
+}
+
+.loguitos {
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	background-color: black;
+	justify-content: space-between;
+	margin-left: 10px;
+}
+.imgCard {
+	padding: 5px 5px 5px 5px;
+	width: 230px;
+	height: 140px;
+}
+.card {
+	width: 14rem;
+	margin: 5px 8px;
+	padding: 3px 3px;
+	border: 1px solid #000;
+}
+.card-title {
+	text-align: center;
+}
+.fsearch {
+	flex-direction: row;
+	width: auto;
+	justify-content: end;
+	margin-left: 200px;
+}
+.d-flex {
+	display: flex!important;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: center;
+	/* justify-content: flex-start; */
+	align-items: center;
+    }
+    
+.card-img-top {
+	border: 1px solid black;
+	width: 13rem;
+	height: 10rem;
+	box-shadow: darkslategrey;
+	margin: 5px 7px;
+}
+footer {
+	color: chartreuse;
+	background-color: #000;
+	height: 50px;
+	font-size: 50px;
+	font-family: Arial;
+	flex-direction: column;
+	border: 2px solid black;
+	margin-top: 30px;
+	bottom: 0;
+}
+
+.chebox {
+	display: flex;
+	border: 2px solid black;
+	align-items: center;
+}
+
+.box1 {
+	border: 2px solid black;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+	.fsearch {
+		flex-direction: row;
+		width: 12rem;
+		justify-content: end;
+		margin-left: 100px;
 	}
-	header {
-		display: flex;
-		width: 100%;
-		height: 70px;
-		border: 2px solid black;
-	}
+	
 	.logo1 {
 		z-index: 2;
 		position: absolute;
@@ -15,217 +131,249 @@
 		width: 60px;
 		height: 60px;
 		border: 1px solid black;
-		background-color: black;
+		background-color: white;
 		padding: 10px 10px;
 	}
 	#cohort {
-		margin-left: 750px;
+		margin-left: 50px;
 	}
 	input#exampleInputName1 {
-		width: 325px;
-	    }
-	
-	.table, .td {
-		table-layout: auto;
+		width: 100px;
+	}
+	#btnSubmit {
+		margin-left: 225px;
+	}
+	.table,
+.td {
+	table-layout: auto;
+	width: 100%;
+}
+
+.btnpages {
+	width: 30px;
+	height: auto;
+	background-color: #000;
+	color: purple;
+}
+.btnSearch {
+	width: 20px;
+	height: 20px;
+	background-color: chartreuse;
+}
+
+	footer {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		font-size: 25px;
+		font-family: Arial;
+		justify-items: center;
+		align-items: center;
+		position: relative;
+		bottom: 0;
+		background-color: black;
+		color: chartreuse;
 		width: 100%;
-		/* border: 1px double #333; */
-		/* caption-side: bottom; */
+		/* border-radius: 10px 10px 10px 10px; */
+		margin-top: 30px;
+		/* width: 98.5vw; */
 	}
-	/* thead, tfoot { */
-	/* background-color: #333; */
-	/* color: #fff; */
-	/* } */
-	.navbar {
-		background-color: aqua;
+	.loguitos {
+		width: 25px;
+		height: 25px;
+		border-radius: 100%;
+		background-color: black;
+		justify-content: space-between;
+		margin-left: 5px;
 	}
-	button {
-		background-color: chartreuse;
-	    }
-	    
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+	.logo1 {
+		z-index: 2;
+		position: absolute;
+		top: 2px;
+		left: 15px;
+		width: 60px;
+		height: 60px;
+		border: 1px solid black;
+		background-color: white;
+		padding: 10px 10px;
+	}
+	#cohort {
+		margin-left: 500px;
+	}
+	input#exampleInputName1 {
+		width: 520px;
+	}
+	#btnSubmit {
+		margin-left: 655px;
+	}
+	.table,
+.td {
+	table-layout: auto;
+	width: 100%;
+}
+
+.navbar {
+	background-color: black;
+}
+
+.btnpages {
+	width: 45px;
+	height: auto;
+	background-color: #000;
+	color: purple;
+}
+.btnSearch {
+	width: 20px;
+	height: 20px;
+	background-color: chartreuse;
+}
+
+	footer {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		font-size: 23px;
+		font-family: Arial;
+		justify-items: center;
+		align-items: center;
+		position: relative;
+		bottom: 0;
+		background-color: black;
+		color: chartreuse;
+		width: 100%;
+		margin-top: 30px;
+		/* width: 98.5vw; */
+	}
+
 	.loguitos {
 		width: 40px;
 		height: 40px;
 		border-radius: 100%;
 		background-color: black;
 		justify-content: space-between;
-		margin-left: 10px;
+		margin-left: 5px;
 	}
-	.imgCard {
-		padding: 5px 5px 5px 5px;
-		width: 230px;
-		height: 140px;
+}
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+	.logo1 {
+		z-index: 2;
+		position: absolute;
+		top: 2px;
+		left: 15px;
+		width: 60px;
+		height: 60px;
+		border: 1px solid black;
+		background-color: white;
+		padding: 10px 10px;
 	}
-	
-	.card-title {
-		text-align: center;
-	}
-	
-	footer {
-		color: white;
-		height: 50px;
-		border: 2px solid black;
-		margin-top: auto;
-		bottom: 0;
-		background-color: gray;
-	}
-	 
-	.chebox {
-		display: flex;
-		 /* position: relative; */
-		border: 2px solid black;
-		align-items: center;
-		/* justify-content: center; */
-	}
-	
-	@media only screen and (min-width: 320px) and (max-width: 767px){
-	#cohort {
-		margin-left: 50px;
-	}
-	input#exampleInputName1 {
-		width: 300px;
-	    }
-	#btnSubmit {
-		margin-left: 225px;
-	}
-		footer {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			font-size: 25px;
-			font-family: Arial;
-			justify-items: center;
-			align-items: center;
-			position: relative;
-			bottom: 0;
-			background-color: black;
-			color: chartreuse;
-			width: 100%;
-			border-radius: 10px 10px 10px 10px;
-			margin-top: 30px;
-			/* width: 98.5vw; */
-		    }
-			.loguitos {
-			width: 25px;
-			height: 25px;
-			border-radius: 100%;
-			background-color: black;
-			justify-content: space-between;
-			margin-left: 5px;
-		}
-		
-	}
-	
-	@media only screen and (min-width: 768px) and (max-width: 1023px){
-	#cohort {
-		margin-left: 700px;
-	}
-	input#exampleInputName1 {
-		width: 520px;
-	    }
-	    #btnSubmit {
-		margin-left: 920px;
-	}
-	footer {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			font-size: 23px;
-			font-family: Arial;
-			justify-items: center;
-			align-items: center;
-			position: relative;
-			bottom: 0;
-			background-color: black;
-			color: chartreuse;
-			width: 100%;
-			border-radius: 10px 10px 10px 10px;
-			margin-top: 30px;
-			/* width: 98.5vw; */
-		    }
-	
-		.loguitos {
-			width: 40px;
-			height: 40px;
-			border-radius: 100%;
-			background-color: black;
-			justify-content: space-between;
-			margin-left: 5px;
-		}
-	
-	}
-	@media only screen and (min-width: 1024px) and (max-width: 1365px){
 	#cohort {
 		margin-left: 600px;
 	}
 	input#exampleInputName1 {
 		width: 300px;
-	    }
-	    #btnSubmit {
+	}
+	#btnSubmit {
 		margin-left: 900px;
 	}
+	.table,
+.td {
+	table-layout: auto;
+	width: 100%;
+}
+
+.navbar {
+	background-color: black;
+}
+
+.btnpages {
+	width: 45px;
+	height: auto;
+	background-color: #000;
+	color: purple;
+}
+.btnSearch {
+	width: 20px;
+	height: 20px;
+	background-color: chartreuse;
+}
+
 	footer {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			font-size: 25px;
-			font-family: Arial;
-			justify-items: center;
-			align-items: center;
-			position: relative;
-			bottom: 0;
-			background-color: black;
-			color: chartreuse;
-			/* width: 100%; */
-			border-radius: 10px 10px 10px 10px;
-			margin-top: 30px;
-			width: 98.5vw;
-			height: 100px;
-		    }
-	
-		.loguitos {
-			width: 80px;
-			height: 80px;
-			border-radius: 100%;
-			background-color: black;
-			justify-content: space-between;
-			margin-left: 5px;
-		}
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		font-size: 25px;
+		font-family: Arial;
+		justify-items: center;
+		align-items: center;
+		position: relative;
+		bottom: 0;
+		background-color: black;
+		color: chartreuse;
+		/* width: 100%; */
+		/* border-radius: 10px 10px 10px 10px; */
+		margin-top: 30px;
+		width: 98.5vw;
+		height: 100px;
 	}
-	@media only screen and (min-width: 1366px) and (max-width: 2560px){
+
+	.loguitos {
+		width: 80px;
+		height: 80px;
+		border-radius: 100%;
+		background-color: black;
+		justify-content: space-between;
+		margin-left: 5px;
+	}
+}
+@media only screen and (min-width: 1366px) and (max-width: 2560px) {
+	.logo1 {
+		z-index: 2;
+		position: absolute;
+		top: 2px;
+		left: 15px;
+		width: 60px;
+		height: 60px;
+		border: 1px solid black;
+		background-color: white;
+		padding: 10px 10px;
+	}
 	#cohort {
 		margin-left: 1000px;
 	}
 	input#exampleInputName1 {
 		width: 300px;
-	    }
-	    #btnSubmit {
+	}
+	#btnSubmit {
 		margin-left: 225px;
 	}
 	footer {
-			display: flex;
-			flex-direction: column;
-			text-align: center;
-			font-size: 25px;
-			font-family: Arial;
-			justify-items: center;
-			align-items: center;
-			position: relative;
-			bottom: 0;
-			background-color: black;
-			color: chartreuse;
-			width: 100%;
-			border-radius: 10px 10px 10px 10px;
-			margin-top: 30px;
-			/* width: 98.5vw; */
-			height: 75px;
-		    }
-	
-		.loguitos {
-			width: 60px;
-			height: 60px;
-			border-radius: 100%;
-			background-color: black;
-			justify-content: space-between;
-			margin-left: 5px;
-		}
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		font-size: 25px;
+		font-family: Arial;
+		justify-items: center;
+		align-items: center;
+		position: relative;
+		bottom: 0;
+		background-color: black;
+		color: chartreuse;
+		width: 100%;
+		/* border-radius: 10px 10px 10px 10px; */
+		margin-top: 30px;
+		/* width: 98.5vw; */
+		height: 75px;
 	}
+
+	.loguitos {
+		width: 60px;
+		height: 60px;
+		border-radius: 100%;
+		background-color: black;
+		justify-content: space-between;
+		margin-left: 5px;
+	}
+}
