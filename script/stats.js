@@ -1,18 +1,18 @@
-var homeEvents = [];
+var statEvents = [];
 
 function showda()
 {
     let curDate = data.currentDate;
     for(let i=0;i<=data.events.length-1;i++) {
-            homeEvents.push(data.events[i]);
+            statEvents.push(data.events[i]);
         } 
 }
 
 showda();
 
-function showHome()
+function showStats()
 {
-    a=document.getElementById('homeCards');
+    a=document.getElementById('statsTable');
     for(let i=0;i<=data.events.length-1;i++) {
         
             document.open();
@@ -35,5 +35,3 @@ function showHome()
         }
     }
     
-
-showHome();
