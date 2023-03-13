@@ -37,7 +37,7 @@ function showPa() {
 		document.write(`<span class="justify-content-start">Price $ ${paEvents[i].price}</span>`);
 		document.write('</div>');
 		document.write('<div class="justify-content-end">');
-		document.write('<a href="./details.html"><button class="btn btn-primary justify-content-end">Ver más</button></a>');
+		document.write(`<a href="./details.html?${paEvents[i]._id}"><button class="btn btn-primary justify-content-end">Ver más</button></a>`);
 		document.write('</div>');
 		document.write('</div>');
 		document.write('</div>');
