@@ -65,7 +65,7 @@ input#exampleInputName1 {
 
 .card {
 	width: 14rem;
-	height: 25rem;
+	height: 27rem;
 	margin: 5px 8px;
 	padding: 3px 3px;
 	border: 1px solid #000;
@@ -102,8 +102,10 @@ input#exampleInputName1 {
 	}
 .card-footer {
 	font-size: small;
-	width: 5rem;
-	height: 10rem;
+	/* width: 5rem; */
+	height: 45px;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .cards{

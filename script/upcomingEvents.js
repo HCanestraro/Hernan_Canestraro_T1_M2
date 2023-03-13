@@ -1,53 +1,33 @@
-/* var paEvents = [];
+/* CHE FUNCTIONS */
+var allEvents = [];
+var upcomingEvents = [];
+var pastEvents = [];
+var arrCategory = [];
+var arrA = [];
+var arrB = [];
+//var arrFiltros = [];
 
-
-
-function showda()
-{
+console.log("BAKMAIN.JS");
+function showda() {
+    console.log("SHOWDA");
     let curDate = data.currentDate;
-
-    for(let i=0;i<=data.events.length-1;i++) {
-        console.log(data.events[i]);
-        console.log(i);
-        if(data.events[i].date <= curDate) {
-            console.log("es menor");
-            paEvents.push(data.events[i]);
+    for (let i = 0; i <= data.events.length - 1; i++) {
+        allEvents.push(data.events[i]);
+        if( data.events[i].date <= curDate) {
+            pastEvents.push(data.events[i]);
+        } else {
+            upcomingEvents.push(data.events[i]);
+        }
+        arrA.push(data.events[i].name.toLowerCase());
+        arrA.push(data.events[i].description.toLowerCase());
+        category1=data.events[i].category.toLowerCase();
+        if (arrCategory.indexOf(category1)===-1) {
+            arrCategory.push(category1);
         }
     }
 }
-
-function showPa() {
-    let aarrLen = paEvents.length;
-    let aa;
-    console.log("showPa.arrLen:",aarrLen);
-    aa=document.getElementById('divPastCards');
-    for(let i=0;i<aarrLen;i++) {
-        // console.log("showup:",paEvents[i]);
-        // a=document.getElementById(`card${i}`);
-        document.open();
-        document.write('<div class="card">');
-        // console.log(`<img src=${paEvents[i].image} class="card-img-top" alt="Picture...">`);
-		document.write(`<img src=${paEvents[i].image} class="card-img-top" alt="Picture...">`);
-		document.write('<div class="card-body">');
-		document.write(`<h5 class="card-title">${paEvents[i].name}</h5>`);
-		document.write(`<p class="card-text">${paEvents[i].description}</p>`);
-		document.write('</div>');
-		document.write('<div class="card-footer d-flex aling-items-center">');
-		document.write('<div class="col aling-items-center">');
-		document.write(`<span class="justify-content-start">Price $ ${paEvents[i].price}</span>`);
-		document.write('</div>');
-		document.write('<div class="justify-content-end">');
-		document.write(`<a href="./details.html?${paEvents[i]._id}"><button class="btn btn-primary justify-content-end">Ver más</button></a>`);
-		document.write('</div>');
-		document.write('</div>');
-		document.write('</div>');
-    }
-}
-
-showda();
-showPa();
- */
-
+// Create Arrays
+showda();/* var paEvents = [];
 /*fecha*/
 function filtraPorFecha(array){
 	let fecha_actual = new Date('2022,01,01');
@@ -69,21 +49,23 @@ function filtraPorFecha(array){
 	  containerCard.innerHTML=''
 	  array.forEach((evento)=>{
 		let div = document.createElement("div");
-		div.className = "tarjeta"
-		div.id = `${evento._id}`
-		div.innerHTML += `<div class="img_tarjeta ad" style="background-image: url(${evento.image})" >
+		div.className = "card"
+		// div.id = `${evento._id}`
+		div.innerHTML += `
+		<img class="card-img-top ad" src=${evento.image}" alt="Picture..." >
+                        	<div class="card-body">
+                          		<h5 class="card-title">${evento.name}</h5>
+                          		<p class="card-text">${evento.description}</p>
 							</div>
-							<div class="cuerpo_tarjeta">
-							  <h3>${evento.name}</h3>
-							  <p>${evento.description}</p>
-							  <div class="precio_tarjeta">
-								<p>Price: ${evento.price}</p>
-								<div class="boton_tarjeta">
-								  <a class="btn btn-primary" href="./../details.html?id=${evento._id}">Ver más</a>
-								</div>
-							  </div>                    
-							</div>
-						  </div>`
+                        	<div class="card-footer d-flex align-items-center">
+                           		<div class="col align-items-center align-self-center">
+                           			<span class="justify-content-start text-small">Price: $ ${evento.price}</span>
+                           		</div>
+                            	<div class="justify-content-end">
+                            		<a class="btn btn-primary btn-small" href="./../details.html?id=${evento._id}">Saber más...</a>
+                            	</div>
+                        	</div>                    
+                        </div>`
 		  fragmento.appendChild(div);
 	  })
 	  containerCard.appendChild(fragmento);
@@ -166,9 +148,10 @@ function filtraPorFecha(array){
 	
 	/*agregar un eventListener a cada checkbox desde el elemento padre y obtengo su estado*/
 	let checkBoxes = document.querySelectorAll('input[name="category"]')
+	let datosa = []
 	checkBoxes.forEach((checkbox)=>{
 	checkbox.addEventListener('change',()=>{
-	  buscador.value='';
+	  /* buscador.value=''; */
 	  let elementos=[]
 	  let listaChecked = document.querySelectorAll('input[name="category"]:checked')
 	  listaChecked.forEach((item)=>{
@@ -176,13 +159,14 @@ function filtraPorFecha(array){
 	  })
 	  if(elementos.length==0){
 		console.log('paso por aca');
-		cards([],containerCard);
-		cards(data.events,containerCard);
+		crearCards([],containerCard);
+		crearCards(data.events,containerCard);
 	  }
 	  else{
 		console.log('paso por allá');
-		cards([],containerCard);      
-		cards(filtroArray(data.events, elementos), containerCard)
+		crearCards([],containerCard);      
+		datosa = filtroArray(data.events, elementos)
+		crearCards(datosa, containerCard)
 	  }
 	})
 	})

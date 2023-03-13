@@ -1,4 +1,33 @@
-/* var paEvents = [];
+/* CHE FUNCTIONS */
+var allEvents = [];
+var upcomingEvents = [];
+var pastEvents = [];
+var arrCategory = [];
+var arrA = [];
+var arrB = [];
+//var arrFiltros = [];
+
+console.log("BAKMAIN.JS");
+function showda() {
+    console.log("SHOWDA");
+    let curDate = data.currentDate;
+    for (let i = 0; i <= data.events.length - 1; i++) {
+        allEvents.push(data.events[i]);
+        if( data.events[i].date <= curDate) {
+            pastEvents.push(data.events[i]);
+        } else {
+            upcomingEvents.push(data.events[i]);
+        }
+        arrA.push(data.events[i].name.toLowerCase());
+        arrA.push(data.events[i].description.toLowerCase());
+        category1=data.events[i].category.toLowerCase();
+        if (arrCategory.indexOf(category1)===-1) {
+            arrCategory.push(category1);
+        }
+    }
+}
+// Create Arrays
+showda();/* var paEvents = [];
 
 
 
@@ -69,9 +98,9 @@ function cards(array, containerCard){
   containerCard.innerHTML=''
   array.forEach((evento)=>{
     let div = document.createElement("div");
-    div.className = "tarjeta"
-    div.id = `${evento._id}`
-    div.innerHTML += `<div class="img_tarjeta ad" style="background-image: url(${evento.image})" >
+    div.className = "card"
+    // div.id = `${evento._id}`
+   /*  div.innerHTML += `<div class="img_tarjeta ad" style="background-image: url(${evento.image})" >
                         </div>
                         <div class="cuerpo_tarjeta">
                           <h3>${evento.name}</h3>
@@ -83,7 +112,23 @@ function cards(array, containerCard){
                             </div>
                           </div>                    
                         </div>
-                      </div>`
+                      </div>` */
+                      div.innerHTML += `
+						
+							            <img class="card-img-top ad" src=${evento.image}" alt="Picture..." >
+                        	<div class="card-body">
+                          		<h5 class="card-title">${evento.name}</h5>
+                          		<p class="card-text">${evento.description}</p>
+							            </div>
+                        	<div class="card-footer d-flex align-items-center">
+                           		<div class="col align-items-center align-self-center">
+                           			<span class="justify-content-start text-small">Price: $ ${evento.price}</span>
+                              </div>
+                              <div class="justify-content-end">
+                                <a class="btn btn-primary btn-small" href="./../details.html?id=${evento._id}">Saber más...</a>
+                            	</div>
+                        	</div>                    
+                        </div>`
       fragmento.appendChild(div);
   })
   containerCard.appendChild(fragmento);
@@ -166,9 +211,10 @@ return dataFinal;
 
 /*agregar un eventListener a cada checkbox desde el elemento padre y obtengo su estado*/
 let checkBoxes = document.querySelectorAll('input[name="category"]')
+let datos = [];
 checkBoxes.forEach((checkbox)=>{
 checkbox.addEventListener('change',()=>{
-  buscador.value='';
+  /* buscador.value=''; */
   let elementos=[]
   let listaChecked = document.querySelectorAll('input[name="category"]:checked')
   listaChecked.forEach((item)=>{
@@ -176,13 +222,14 @@ checkbox.addEventListener('change',()=>{
   })
   if(elementos.length==0){
     console.log('paso por aca');
-    cards([],containerCard);
-    cards(data.events,containerCard);
+    crearCards([],containerCard);
+    crearCards(data.events,containerCard);
   }
   else{
     console.log('paso por allá');
-    cards([],containerCard);      
-    cards(filtroArray(data.events, elementos), containerCard)
+    crearCards([],containerCard);      
+    datos = filtroArray(data.events, elementos)
+    crearCards(datos, containerCard)
   }
 })
 })
@@ -190,8 +237,8 @@ checkbox.addEventListener('change',()=>{
 /*Inicio los checkboxes*/
 let dataFiltradaPorFecha = filtraPorFecha(data.events)
 
-let datos = createCategories(dataFiltradaPorFecha)
-crearCheckBoxes(datos, containerCheckBoxes);
+let datos1 = createCategories(dataFiltradaPorFecha)
+crearCheckBoxes(datos1, containerCheckBoxes);
 
 /*Cargo por primera vez las cards con todos los datos*/
 cards(dataFiltradaPorFecha,containerCard);

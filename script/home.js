@@ -59,12 +59,8 @@ function crearCards(array, containerCard) {
                           		<p class="card-text">${evento.description}</p>
 							</div>
                         	<div class="card-footer d-flex align-items-center">
-                           		<div class="col align-items-center align-self-center">
-                           			<span class="justify-content-start text-small">Price: $ ${evento.price}</span>
-                           		</div>
-                            	<div class="justify-content-end">
-                            		<a class="btn btn-primary btn-small" href="./../details.html?id=${evento._id}">Saber más...</a>
-                            	</div>
+                           			<p class="justify-content-center align-items-center text-small">Price: $ ${evento.price}</p>
+                           			<a class="btn btn-primary btn-small" href="./../details.html?id=${evento._id}">Saber más...</a>
                         	</div>                    
                         </div>`
 
