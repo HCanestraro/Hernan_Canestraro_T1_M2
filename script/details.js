@@ -1,43 +1,28 @@
-// var arrCategory = [];
-var deEvents = "";
-let qStr = location.search;
-let params = new URLSearchParams(qStr);
-let id=params.get("id");
+details = data.events;
+const queryString = location.search
+console.log("DETAILS.JS queryString :" + queryString);
+const params = new URLSearchParams(queryString)
+console.log("DETAILS.JS params : " + params);
+const id = params.get("id")
+console.log("EL _id : " + id);
+const item = details.find(event => event._id == id)
+/* details.forEach(element => {
+	console.log(element);
+}); */
+console.log("ITEM",item);
+const div = document.querySelector(".contenido_details")
+div.innerHTML = `
 
-
-console.log(id);
-daEvents = data.events.filter(events => events._id == id);
-
-const container = document.getElementById("cardsDetails");
-
-		document.open();
-        document.write('<div class="card">');
-		document.write(`<img src=${deEvents.image} class="card-img-top" alt="Picture...">`);
-		document.write('<div class="card-body">');
-		document.write(`<h5 class="card-title">${deEvents.name}</h5>`);
-		document.write(`<p class="card-text">${deEvents.description}</p>`);
-		document.write('</div>');
-		document.write('<div class="card-footer d-flex aling-items-center">');
-		document.write('<div class="col aling-items-center">');
-		document.write(`<span class="justify-content-start">Price $ ${deEvents.price}</span>`);
-		document.write('</div>');
-		document.write('<div class="justify-content-end">');
-		document.write(`<a href="./details.html?${deEvents._id}"><button class="btn btn-primary justify-content-end">Ver más</button></a>`);
-		document.write('</div>');
-		document.write('</div>');
-		document.write('</div>');
-	document.close();
-
-/* function showCategory() {
-	for (let i = 0; i <= deEvents.length - 1; i++) {
-		if (!arrCategory(deEvents.category.toLowerCase())) {
-			console.log("Busca no repetidos");
-			arrCategory.push(deEvents.category);
-			console.log("Agrega push:", deEvents.category);
-		}
-	}
-	console.log("Total de elementos:",arrCategory.length);
-}
-
-showCategory();
- */
+<div class="card_details d-flex container-fluid justify-content-center align-items-center text-center align-self-center shadow">
+  	<img class="img_target" src=" ${item.image} " alt="Picture...." width="400px" heigth="400px"/>
+        <div class="card-body">
+          	<h5 class="card-title">${item.name} </h5>
+            <h6 class="card-subtitle">${item.description}</h6>
+			<p class="card-text"><b>Category : </b>${item.category}</p>
+			<p class="card-text"><b>Capacity : </b>${item.capacity}</p>
+			<p class="card-text"><b>Assistance : </b>${item.assistance}</p>
+			<p class="card-text"><b>Price : </b>${item.price}</p>
+			<input class="m-3 bg-warning" type="button" value="Back..." name="Back..." onclick="history.back()" style="backgroundColor: yellow;" />
+		</div>
+</div>
+		`

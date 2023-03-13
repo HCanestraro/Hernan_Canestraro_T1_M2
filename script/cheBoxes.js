@@ -16,13 +16,17 @@ function cheBoxes() {
         }
     } 
 
+    
+}
+
+function createCheckBoxes()
+{
     for(let i=0;i<=arrCategory.length-1;i++) {
         document.open();
         document.write(`<label><input type="checkbox" id="category${i}" name="category">${arrCategory[i]}<span>  </span></label>`);
         document.close();
     }
 }
-
 function checkActivated() {
     arr3=document.querySelectorAll("input[type=checkbox]");
     newarr3 = Object.entries(arr3).map(i => i[i]);
@@ -61,7 +65,7 @@ function chActivo() {
             ca= document.querySelector("category");
             console.log(ca);
 }
-chActivo();
+// chActivo();
 
 function chche() {
  console.log("CHCHE");
