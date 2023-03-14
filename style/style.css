@@ -1,5 +1,6 @@
 * {
 	box-sizing: border-box;
+	--bg-color-card:gray;
 }
 
 header {
@@ -54,6 +55,8 @@ input#exampleInputName1 {
 	margin-left: 10px;
 }
 
+
+/* ------------------------------------------------- */
 .imgCard {
 	padding: 5px 5px 5px 5px;
 	width: 230px;
@@ -62,16 +65,74 @@ input#exampleInputName1 {
 
 .card {
 	width: 14rem;
+	height: 27rem;
 	margin: 5px 8px;
 	padding: 3px 3px;
 	border: 1px solid #000;
 }
 
-.card-title {
+.card-body {
 	text-align: center;
+	justify-content: center;
 }
 
-.fsearch {
+.card-title {
+	/* font-size: 40px; */
+	text-align: center;
+	margin: 2px 2px;
+
+	/* border: 2px solid black; */
+	/* background-color: cornflowerblue; */
+}
+
+.card-subtitle {
+	/* font-size: 30px; */
+	text-align: center;
+	margin: 2px 2px;
+	/* border: 2px solid black; */
+	/* background-color: cornflowerblue; */
+}
+.card-title1 {
+	font-size: 40px;
+	text-align: center;
+	margin: 2px 2px;
+	border: 2px solid black;
+	background-color: cornflowerblue;
+}
+
+.card-subtitle1 {
+	font-size: 30px;
+	text-align: center;
+	margin: 2px 2px;
+	border: 2px solid black;
+	background-color: cornflowerblue;
+}
+.card-img-top {
+		border: 1px solid black;
+		width: 13rem;
+		height: 10rem;
+		box-shadow: darkslategrey;
+		margin: 5px 7px;
+	}
+.card-footer {
+	font-size: small;
+	/* width: 5rem; */
+	height: 45px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.cards{
+    padding: 1%;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+	.fsearch {
 	flex-direction: row;
 	width: auto;
 	justify-content: end;
@@ -86,13 +147,6 @@ input#exampleInputName1 {
 	align-items: center;
 }
 
-.card-img-top {
-	border: 1px solid black;
-	width: 13rem;
-	height: 10rem;
-	box-shadow: darkslategrey;
-	margin: 5px 7px;
-}
 
 footer {
 	display: flex;
@@ -111,6 +165,182 @@ footer {
 	border: 2px solid black;
 }
 
+
+.event__card {
+	width: 43.75rem;
+	height: 17em;
+	background-color: var(--bg-color-card);
+  }
+/* .card_details {
+	width: 41.3rem;
+    height: 81rem;
+    margin: 5px 8px;
+    padding: 3px 3px;
+	align-items: center;
+	justify-content: center;
+} 
+ */
+  /* .logo{
+    height: 20px;
+}
+
+.carousel-item>img{
+    height: 10rem;
+    object-fit: cover;
+    object-position: 25% 15%;
+} */
+.formulario{
+    margin-top: 1%;
+    margin-bottom: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.formulario_1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+	font-size: small;
+}
+.formulario_1 div{
+    margin: 10px;
+}
+
+/* .card{
+    margin-bottom: 1rem;
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+
+/* .cards img{
+    height: 168px;
+} */
+/* .img_detalle{
+	justify-content: center;
+	align-items: center;
+    min-width: 278px;
+    width: 70%;
+    height: 40%;
+} */
+/* ---------------------------------- */
+.navigation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.centrado > button{
+    margin-top: 1%;
+}
+/* .contenido_details{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	width: auto;
+	height: auto; */
+	/* border: 2px solid red; */
+/*} */
+/* .detalle{
+    min-height: fit-content;
+    height: 60vh;
+    min-width: fit-content;
+    width: 100%;
+    margin-top: 1%;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+} */
+/*  .img_detalle> img{
+    height: 8rem;
+    width: 40.3%;
+    box-shadow: 1px 1px;
+    border: 1px solid gray;
+    border-radius: 5%;
+    margin: 1%;
+    object-fit: cover;    
+}  */
+.detalle_evento{
+    border: 1px solid gray;
+    padding: 3%;
+    border-radius: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    max-width: 40%;
+    min-width: 278px;
+    height: 75%;
+}
+.contenido_stats{
+    margin-bottom: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta{
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    border-radius: 0.375rem;
+    min-height: 446px;
+    height:fit-content;
+    width: 278px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* .img_tarjeta{
+    width: 100%;
+    min-height: 168px;
+    height: 36%;
+    border-top-left-radius:0.375rem;
+    border-top-right-radius: 0.375rem;
+} */
+/* .cuerpo_tarjeta{
+    width: 100%;
+    height: max-content;
+    max-height: 64%;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+} */
+/* .precio_tarjeta{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+} */
+.card-footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items:center;
+}
+.precio_tarjeta>button>a{
+    color: white;
+}
+
+.emptySearch{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 @media only screen and (min-width: 320px) and (max-width: 767px) {
 
 	body {

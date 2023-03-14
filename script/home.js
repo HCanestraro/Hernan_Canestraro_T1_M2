@@ -67,7 +67,7 @@ function crearCards(array, containerCard) {
 }
 
 // Mi array de showda() con todos los eventos
-crearCards(upcomingEvents,containerCard);
+crearCards(allEvents,containerCard);
 function createCategories(array) {
 	let items = [];
 	array.forEach((categoria) => {

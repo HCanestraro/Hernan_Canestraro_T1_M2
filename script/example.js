@@ -1,3 +1,4 @@
+/*funcion para crear las crearCards desde el array que le mande*/
 let fragmento = document.createDocumentFragment();
 function crearCards(array, containerCard){
   containerCard.innerHTML=''
@@ -5,37 +6,19 @@ function crearCards(array, containerCard){
     let div = document.createElement("div");
     div.className = "tarjeta"
     div.id = `${evento._id}`
-    div.innerHTML += `
-    <div class="img_tarjeta ad" style="background-image: url(${evento.image})" >
-    </div>
-    <div class="cuerpo_tarjeta">
+    div.innerHTML += `<div class="img_tarjeta ad" style="background-image: url(${evento.image})" >
+                        </div>
+                        <div class="cuerpo_tarjeta">
                           <h3>${evento.name}</h3>
                           <p>${evento.description}</p>
                           <div class="precio_tarjeta">
-                            <p>Price: ${evento.price}</p>
+                            <p>Price: ${evento.price}U$D</p>
                             <div class="boton_tarjeta">
-                              <a class="btn btn-primary" href="./details.html?id=${evento._id}">Ver más</a>
+                              <a class="btn btn-primary" href="../../pages/details.html?id=${evento._id}">More</a>
                             </div>
                           </div>                    
                         </div>
                       </div>`
-                      /* `
-                      <div class="card">
-                      <img src=${evento.image} class="card-img-top" alt="Picture...">
-                      <div class="card-body">
-                      <h5 class="card-title">${evento.name}</h5>
-                      <p class="card-text">${evento.description}</p>
-                      </div>
-                      <div class="card-footer d-flex aling-items-center">
-                      <div class="col aling-items-center">
-                      <span class="justify-content-start">Price $ ${evento.price}</span>
-                      </div>
-                      <div class="justify-content-end">
-                      <a class="btn btn-primary" href="./details.html?id=${evento._id}">Ver más</a>
-                      </div>
-                      </div>
-                      </div>
-                      ` */
       fragmento.appendChild(div);
   })
   containerCard.appendChild(fragmento);
@@ -46,20 +29,20 @@ crearCards(data.events,containerCard);
 
 /*funcion para crear las categorias de los checkboxes desde el Json*/
 function createCategories(array){
-/* let items = [];
+let items = [];
 array.forEach((categoria)=>{
   if(!items.includes(categoria.category)){
     items.push(categoria.category);
   }   
-}) */
-return arrCategory;/* items; */
+})
+return items;
 }
 
 /*funcion para crear los checkboxes desde las categorias recien obtenidas*/
 let fragmento1 = document.createDocumentFragment();
 function crearCheckBoxes(array, containerCheckBoxes){
 let i = 0;
-array.forEach((arrCategoria)=>{
+array.forEach((categoria)=>{
   let div = document.createElement("div");
   div.className = "form-check"
   div.innerHTML += `<input class="form-check-input" type="checkbox" name="category" value="${categoria}" id="flexCheckDefault${i}">
@@ -70,7 +53,7 @@ array.forEach((arrCategoria)=>{
 containerCheckBoxes.appendChild(fragmento1);
 }
 
-/*Create for checkboxes activos*/
+/*Creo una funcion que filtra la data segun los checkboxes activos*/
 function filtroArray(array, filtro){
   let dataFinal=[];
   array.forEach((evento)=>{
@@ -83,10 +66,12 @@ function filtroArray(array, filtro){
   return dataFinal;
   }
 
-  /*Run checkboxes*/
+  /*Inicio los checkboxes*/
 crearCheckBoxes(createCategories(data.events), containerCheckBoxes)
 
-/*eventListener checkbox & see status*/
+
+
+  /*agregar un eventListener a cada checkbox y obtengo su estado*/
 let checkBoxes = document.querySelectorAll('input[name="category"]')
 let datos = []
 checkBoxes.forEach((checkbox)=>{
@@ -119,8 +104,8 @@ checkBoxes.forEach((checkbox)=>{
 let fragmento2 = document.createDocumentFragment();
 function mensaje(containerCard){
   let div = document.createElement("div");
-  div.className = "no_found"
-  div.innerHTML += `<h1>Nada encontrado... Revisa tus filtros...</h1>`
+  div.className = "no_hay_un_porongo"
+  div.innerHTML += `<h1>Nada que ver lo que estas buscando</h1>`
   fragmento2.appendChild(div);
   containerCard.appendChild(fragmento2);
 }
@@ -145,7 +130,7 @@ buscador.addEventListener('keyup',()=>{
     }
   })  
   if(datafiltrada.length==0){
-    /*Mostrar tarjeta o mensaje que no hay*/
+    /*Mostrar tarjeta o mensaje que no hay un carajo*/
     crearCards([],containerCard);
     mensaje(containerCard)
   }else{
