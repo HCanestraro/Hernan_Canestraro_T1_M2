@@ -28,9 +28,6 @@ function showda() {
 }
 // Create Arrays
 showda();
-
-/*funcion para crear las crearCards desde el array que le mande*/
-
 let fragmento = document.createDocumentFragment();
 function crearCards(array, containerCard) {
 	containerCard.innerHTML = ''
@@ -69,12 +66,8 @@ function crearCards(array, containerCard) {
 	containerCard.appendChild(fragmento);
 }
 
-/*Cargo por primera vez las crearCards con todos los datos*/
-// crearCards(data.events, containerCard);
-// 
+// Mi array de showda() con todos los eventos
 crearCards(allEvents,containerCard);
-
-/*funcion para crear las categorias de los checkboxes desde el Json*/
 function createCategories(array) {
 	let items = [];
 	array.forEach((categoria) => {
@@ -84,8 +77,6 @@ function createCategories(array) {
 	})
 	return items;
 }
-
-/*funcion para crear los checkboxes desde las categorias recien obtenidas*/
 let fragmento1 = document.createDocumentFragment();
 function crearCheckBoxes(array, containerCheckBoxes) {
 	let i = 0;
@@ -99,8 +90,6 @@ function crearCheckBoxes(array, containerCheckBoxes) {
 	})
 	containerCheckBoxes.appendChild(fragmento1);
 }
-
-/*Creo una funcion que filtra la data segun los checkboxes activos*/
 function filtroArray(array, filtro) {
 	let dataFinal = [];
 	array.forEach((evento) => {
@@ -112,13 +101,7 @@ function filtroArray(array, filtro) {
 	})
 	return dataFinal;
 }
-
-/*Inicio los checkboxes*/
 crearCheckBoxes(createCategories(data.events), containerCheckBoxes)
-
-
-
-/*agregar un eventListener a cada checkbox y obtengo su estado*/
 let checkBoxes = document.querySelectorAll('input[name="category"]')
 let datos = []
 checkBoxes.forEach((checkbox) => {
@@ -139,15 +122,6 @@ checkBoxes.forEach((checkbox) => {
 		}
 	})
 })
-
-
-/*Inicializo el filtroArray con todas las categorias*/
-/*filtroArray(data.events, createCategories(data.events))*/
-
-
-/*hasta aca esta ok*/
-
-/*Funcion para mostrar un mensaje cuando la busqueda no arroja resultados*/
 let fragmento2 = document.createDocumentFragment();
 function mensaje(containerCard) {
 	let div = document.createElement("div");
@@ -156,11 +130,6 @@ function mensaje(containerCard) {
 	fragmento2.appendChild(div);
 	containerCard.appendChild(fragmento2);
 }
-
-
-
-/*Arreglar el buscasor para que busque sin tener checkboxes activos.*/
-/*agregar un eventListener a la busqueda asi se filtra por categoria*/
 let buscador = document.querySelector('input[placeholder="Search"]')
 buscador.addEventListener('keyup', () => {
 	let datafiltrada = [];
@@ -177,7 +146,6 @@ buscador.addEventListener('keyup', () => {
 		}
 	})
 	if (datafiltrada.length == 0) {
-		/*Mostrar tarjeta o mensaje que no hay un carajo*/
 		crearCards([], containerCard);
 		mensaje(containerCard)
 	} else {
