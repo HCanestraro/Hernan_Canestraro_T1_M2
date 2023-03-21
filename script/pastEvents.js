@@ -5,29 +5,107 @@ var pastEvents = [];
 var arrCategory = [];
 var arrA = [];
 var arrB = [];
-//var arrFiltros = [];
+var data = [];
+var curDate = "";
+var dataLen = 0;
+var category1 = "";
+var elementos = [];
 
-console.log("BAKMAIN.JS");
-function showda() {
-    console.log("SHOWDA");
-    let curDate = data.currentDate;
-    for (let i = 0; i <= data.events.length - 1; i++) {
-        allEvents.push(data.events[i]);
-        if( data.events[i].date <= curDate) {
-            pastEvents.push(data.events[i]);
-        } else {
-            upcomingEvents.push(data.events[i]);
-        }
-        arrA.push(data.events[i].name.toLowerCase());
-        arrA.push(data.events[i].description.toLowerCase());
-        category1=data.events[i].category.toLowerCase();
-        if (arrCategory.indexOf(category1)===-1) {
-            arrCategory.push(category1);
-        }
-    }
+let urlAPI = "https://mindhub-xj03.onrender.com/api/amazing"
+console.log("API ="+urlAPI);
+async function getEvents()
+{
+	try{
+		let respuesta = await fetch(urlAPI)
+		let datos = await respuesta.json()
+		data=datos;
+		// allEvents=data.events;
+		dataLen=data.events.length;
+		curDate=data.currentDate;
+		for (let i = 0; i <= dataLen - 1; i++) {
+			if( data.events[i].date <= curDate) {
+				pastEvents.push(data.events[i]);
+			} else {
+				upcomingEvents.push(data.events[i]);
+			}
+			arrA.push(data.events[i].name.toLowerCase());
+			category1=data.events[i].category.toLowerCase();
+			arrA.push(data.events[i].description.toLowerCase());
+			if (arrCategory.indexOf(category1)===-1) {
+				arrCategory.push(category1);
+			}
+		}
+		crearCheckBoxes(arrCategory, containerCheckBoxes);
+		crearCards(pastEvents,containerCard);
+		let checkBoxes = document.querySelectorAll('input[name="category"]')
+		let datos1 = []
+		checkBoxes.forEach((checkbox) => {
+			checkbox.addEventListener('change', () => {
+				let elementos = []
+				let listaChecked = document.querySelectorAll('input[name="category"]:checked')
+				listaChecked.forEach((item) => {
+					elementos.push(item.defaultValue)
+				})
+				if (elementos.length == 0) {
+					crearCards([], containerCard);
+					crearCards(pastEvents, containerCard);
+				}
+				else {
+
+					crearCards(filtroArray(pastEvents, elementos), containerCard);
+					pastEvents.forEach((evento) => {
+						elementos.forEach((categoria) => {
+							if (evento.category == categoria) {
+								// dataFinal.push(evento)
+								datos1.push(evento);
+								console.log(categoria);
+							}
+						})
+					})
+					datos1 = filtroArray(pastEvents, elementos)
+					crearCards(datos1, containerCard);
+					crearCards(filtroArray(data.events,elementos), containerCard);
+				}
+			})
+		})
+
+		let fragmento2 = document.createDocumentFragment();
+		function mensaje(containerCard) {
+			let div = document.createElement("div");
+			div.className = "no_hay_un_porongo"
+			div.innerHTML += `<h1>Nada que ver lo que estas buscando</h1>`
+			fragmento2.appendChild(div);
+			containerCard.appendChild(fragmento2);
+		}
+		let buscador = document.querySelector('input[placeholder="Search"]')
+		buscador.addEventListener('keyup', () => {
+			let datafiltrada = [];
+			let elementos = [];
+			let listaChecked = [];
+			listaChecked = document.querySelectorAll('input[name="category"]:checked')
+			listaChecked.forEach((item) => {
+				elementos.push(item.defaultValue)
+			})
+			datos1 = filtroArray(pastEvents, elementos)
+			datos1.forEach(element => {
+				if (element.name.toLowerCase().includes(buscador.value.toLowerCase())) {
+					datafiltrada.push(element);
+				}
+			})
+			if (datafiltrada.length == 0) {
+				crearCards([], containerCard);
+				mensaje(containerCard)
+			} else {
+				crearCards([], containerCard);
+				crearCards(datafiltrada, containerCard);
+			}
+		});
+	} catch {
+		alert("Ocurrio un error al leer la API");
+	}
 }
-// Create Arrays
-showda();
+
+getEvents();
 let fragmento = document.createDocumentFragment();
 function crearCards(array, containerCard) {
 	containerCard.innerHTML = ''
@@ -68,6 +146,7 @@ function crearCards(array, containerCard) {
 
 // Mi array de showda() con todos los eventos
 crearCards(pastEvents,containerCard);
+
 function createCategories(array) {
 	let items = [];
 	array.forEach((categoria) => {
@@ -75,7 +154,8 @@ function createCategories(array) {
 			items.push(categoria.category);
 		}
 	})
-	return items;
+	// return items;
+	return arrCategory;
 }
 let fragmento1 = document.createDocumentFragment();
 function crearCheckBoxes(array, containerCheckBoxes) {
@@ -94,16 +174,16 @@ function filtroArray(array, filtro) {
 	let dataFinal = [];
 	array.forEach((evento) => {
 		filtro.forEach((categoria) => {
-			if (evento.category == categoria) {
+			if (evento.category.toLowerCase() == categoria) {
 				dataFinal.push(evento)
 			}
 		})
 	})
 	return dataFinal;
 }
-crearCheckBoxes(createCategories(data.events), containerCheckBoxes)
+crearCheckBoxes(arrCategory, containerCheckBoxes)
 let checkBoxes = document.querySelectorAll('input[name="category"]')
-let datos = []
+let datos1 = []
 checkBoxes.forEach((checkbox) => {
 	checkbox.addEventListener('change', () => {
 		let elementos = []
@@ -113,12 +193,12 @@ checkBoxes.forEach((checkbox) => {
 		})
 		if (elementos.length == 0) {
 			crearCards([], containerCard);
-			crearCards(data.events, containerCard);
+			crearCards(pastEvents, containerCard);
 		}
 		else {
 			crearCards([], containerCard);
-			datos = filtroArray(data.events, elementos)
-			crearCards(datos, containerCard)
+			datos1 = filtroArray(pastEvents, elementos)
+			crearCards(datos1, containerCard)
 		}
 	})
 })

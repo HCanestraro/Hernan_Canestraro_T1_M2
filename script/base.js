@@ -1,5 +1,6 @@
 // creo cada Evento
 function createCard(eventoParaCard){
+    console.log("EVENTOPARACARD");
     const contenedorOtraCard = `
     <div class="card">
     <img src="${eventoParaCard.image}" class="card-img-top" alt="${eventoParaCard.name}">
@@ -16,7 +17,10 @@ function createCard(eventoParaCard){
 }
 
 // create checkbox|
-function createCheckbox(categoria){
+// function createCheckbox(categoria){
+    function createCheckbox(){
+
+    console.log("CREATECHECKBOX","END");
     let htmlCategorias = ""
     for (let categoria of arrCategory){
         htmlCategorias += `<div class="col-6 col-md-4 col-xl-2 form-check">

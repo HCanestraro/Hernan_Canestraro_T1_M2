@@ -65,7 +65,7 @@ input#exampleInputName1 {
 
 .card {
 	width: 14rem;
-	height: 27rem;
+	height: 30rem;
 	margin: 5px 8px;
 	padding: 3px 3px;
 	border: 1px solid #000;
@@ -101,7 +101,7 @@ input#exampleInputName1 {
 }
 
 .card-subtitle1 {
-	font-size: 30px;
+	font-size: 25px;
 	text-align: center;
 	margin: 2px 2px;
 	border: 2px solid black;
@@ -117,7 +117,7 @@ input#exampleInputName1 {
 .card-footer {
 	font-size: small;
 	/* width: 5rem; */
-	height: 45px;
+	height: 50px;
 	justify-content: space-between;
 	align-items: center;
 }
@@ -150,7 +150,7 @@ input#exampleInputName1 {
 
 footer {
 	display: flex;
-	position: initial;
+	position: relative;
 	font-size: 25px;
 	font-family: Arial;
 	bottom: 0;
